@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.justfeed.common.subscriptions.Subscription
 
 class MainViewModel : ViewModel() {
-    private val _subscriptions: List<Subscription> by lazy {
+    private val subscript: List<Subscription> by lazy {
         com.justfeed.common.subscriptions.getSubscriptions();
     }
 
@@ -16,10 +16,12 @@ class MainViewModel : ViewModel() {
     val uiEventLiveData = MutableLiveData<MainViewCommand>()
 
     fun getSubscriptions(): List<Subscription> {
-        return _subscriptions
+        return subscript
     }
 
     fun onSubscribeClicked() {
         uiEventLiveData.value = MainViewCommand.GoToSubscriptions
     }
+
+    var showNoFeeds: Boolean = true
 }

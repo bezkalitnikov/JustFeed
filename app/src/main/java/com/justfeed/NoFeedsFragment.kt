@@ -24,10 +24,11 @@ class NoFeedsFragment : Fragment() {
         binding = FragmentNoFeedsBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel;
         viewModel.uiEventLiveData.observe(viewLifecycleOwner, Observer {
-            when (it!!) {
+            when (it) {
                 MainViewModel.MainViewCommand.GoToSubscriptions -> {
                     val action = NoFeedsFragmentDirections.actionNoFeedsFragmentToSubscriptionsFragment()
                     findNavController().navigate(action)
+                    viewModel.uiEventLiveData.value = null
                 }
             }
         })

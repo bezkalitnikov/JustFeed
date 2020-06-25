@@ -5,7 +5,11 @@
     <fragment
         android:id="@+id/feedsFragment"
         android:name="com.justfeed.FeedsFragment"
-        android:label="FeedsFragment" />
+        android:label="FeedsFragment" >
+        <action
+            android:id="@+id/action_feedsFragment_to_noFeedsFragment"
+            app:destination="@id/noFeedsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/noFeedsFragment"
         android:name="com.justfeed.NoFeedsFragment"
