@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/feedsFragment">
+    <fragment
+        android:id="@+id/feedsFragment"
+        android:name="com.justfeed.FeedsFragment"
+        android:label="FeedsFragment" />
+    <fragment
+        android:id="@+id/noFeedsFragment"
+        android:name="com.justfeed.NoFeedsFragment"
+        android:label="NoFeedsFragment" >
+        <action
+            android:id="@+id/action_noFeedsFragment_to_subscriptionsFragment"
+            app:destination="@id/subscriptionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="com.justfeed.SubscriptionsFragment"
+        android:label="SubscriptionsFragment" />
+</navigation>
