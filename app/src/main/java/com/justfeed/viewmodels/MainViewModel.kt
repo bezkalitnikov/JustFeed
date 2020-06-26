@@ -2,11 +2,24 @@ package com.justfeed.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.justfeed.common.subscriptions.Subscription
+import com.justfeed.common.FeedSource
+import com.justfeed.common.Feed
 
 class MainViewModel : ViewModel() {
-    private val subscript: List<Subscription> by lazy {
-        com.justfeed.common.subscriptions.getSubscriptions();
+    private val _feedSources: Array<FeedSource> by lazy {
+        com.justfeed.common.getFeedSources()
+    }
+
+    fun getFeedSources(): Array<FeedSource> {
+        return _feedSources
+    }
+
+    private val _feeds: Array<Feed> by lazy {
+        com.justfeed.common.getFeeds()
+    }
+
+    fun getFeeds(): Array<Feed> {
+        return _feeds
     }
 
     enum class MainViewCommand {
@@ -14,10 +27,6 @@ class MainViewModel : ViewModel() {
     }
 
     val uiEventLiveData = MutableLiveData<MainViewCommand>()
-
-    fun getSubscriptions(): List<Subscription> {
-        return subscript
-    }
 
     fun onSubscribeClicked() {
         uiEventLiveData.value = MainViewCommand.GoToSubscriptions

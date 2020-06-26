@@ -9,12 +9,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:contentDescription="@string/silhouette_of_grass_under_white_sky"
@@ -24,10 +22,10 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/noFeedsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/you_do_not_have_any_subscriptions"
+            android:text="@string/you_do_not_have_any_feeds"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,14 +35,13 @@
             android:textColor="@color/colorPrimary"/>
 
         <Button
-            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lets_get_started"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/noFeedsTextView"
             app:layout_constraintVertical_bias="0.6"
             android:width="200dp"
             android:height="60dp"

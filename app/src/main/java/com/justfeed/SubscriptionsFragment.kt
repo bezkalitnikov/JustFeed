@@ -29,7 +29,7 @@ class SubscriptionsFragment : Fragment() {
         binding = FragmentSubscriptionsBinding.inflate(layoutInflater)
         viewManager = LinearLayoutManager(context)
         viewAdapter = SubscriptionsAdapter(
-            viewModel.getSubscriptions().toTypedArray()
+            viewModel.getFeedSources()
         )
         recyclerView = binding.subscriptionsRecyclerView.apply {
             setHasFixedSize(true)

@@ -2,27 +2,32 @@ package com.justfeed.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.justfeed.R
-import com.justfeed.common.subscriptions.Subscription
+import com.justfeed.common.FeedSource
+import com.justfeed.databinding.SubscriptionItemBinding
 
-class SubscriptionsAdapter(private val subscriptions: Array<Subscription>) :
-        RecyclerView.Adapter<SubscriptionsAdapter.SubscriptionsViewHolder>() {
+class SubscriptionsAdapter(private val feedSources: Array<FeedSource>) :
+        RecyclerView.Adapter<SubscriptionsAdapter.ViewHolder>() {
 
-    class SubscriptionsViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
+    class ViewHolder(private val binding: SubscriptionItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubscriptionsViewHolder {
-        var textView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_subscriptions, parent, false) as TextView
-        return SubscriptionsViewHolder(
-            textView
-        )
+        fun bind(item: FeedSource) {
+            binding.viewModel = item
+        }
     }
 
-    override fun onBindViewHolder(holder: SubscriptionsViewHolder, position: Int) {
-        holder.textView.text = subscriptions[position].id
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        inflater
+            .inflate(R.layout.subscription_item, parent, false)
+        val binding = SubscriptionItemBinding.inflate(inflater)
+        return ViewHolder(binding)
     }
 
-    override fun getItemCount() = subscriptions.size
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(feedSources[position])
+    }
+
+    override fun getItemCount() = feedSources.size
 }

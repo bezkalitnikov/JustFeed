@@ -2,5 +2,5 @@
     <string name="app_name">Justfeed</string>
     <string name="silhouette_of_grass_under_white_sky">silhouette of grass under white sky</string>
     <string name="lets_get_started">Let\`s get started</string>
-    <string name="you_do_not_have_any_subscriptions">You don\`t have any subscription</string>
+    <string name="you_do_not_have_any_feeds">You don\`t have any feeds</string>
 </resources>

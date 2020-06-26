@@ -27,7 +27,7 @@ class FeedsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (!viewModel.getSubscriptions().any() && viewModel.showNoFeeds) {
+        if (!viewModel.getFeeds().any() && viewModel.showNoFeeds) {
             viewModel.showNoFeeds = false
             val action = FeedsFragmentDirections.actionFeedsFragmentToNoFeedsFragment()
             findNavController().navigate(action)

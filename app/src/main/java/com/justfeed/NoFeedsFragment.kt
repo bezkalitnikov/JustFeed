@@ -30,6 +30,8 @@ class NoFeedsFragment : Fragment() {
                     findNavController().navigate(action)
                     viewModel.uiEventLiveData.value = null
                 }
+                else -> {
+                }
             }
         })
         return binding.root
